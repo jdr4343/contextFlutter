@@ -28,18 +28,35 @@ class MyApp extends StatelessWidget {
       //   body: Container(), //중단 위젯 
       //   bottomNavigationBar: BottomAppBar(child: Text('하단 입니다.'),),
       //   )
-      //여러 위젯을 가로로 배치하는 법 Row
+      //여러 위젯을 가로로 배치하는 법 Row(childeren:[]) 세로로 배치 하는 법 Column(childeren:[])
       // body: Row(children: [Icon(Icons.star),
       // Icon(Icons.shop)],
       //  )
-      home: Scaffold(
-        body: Row(children: [Icon(Icons.star),
-        Icon(Icons.shop)],
-        )
+      //mainAxisAligment: MainAxisAlignment.start,center,end 시작 가운데 마지막 정렬
+      //crossAxisAligment: CrossAxisAlignment.center 반대축 정렬(상하 폭을 주면 세로정렬 가능)
+      //생각이 안날때는 자동 완성 불러오기 cmd + I
+      home:
+      Scaffold(
+        appBar: AppBar(
+          centerTitle: false,
+          title: Text('앱임'),
+          ),
+        body: Text('안녕'),
+        bottomNavigationBar: BottomAppBar(
+          child: 
+          Container(
+            height: 50.0,
+             child: 
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [Icon(Icons.shop),Icon(Icons.star),Icon(Icons.shop)],
+            )
+            
+          ),
+          
 
         ),
-     
-
+      ),
     );
   }
 }
