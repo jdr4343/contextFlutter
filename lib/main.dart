@@ -71,20 +71,191 @@ class MyApp extends StatelessWidget {
       //메서드를 더블 클릭하고 전구를 통해 감싸줄수 있음, 랩핑이 가능하다는 소리. Center또한 사용할수 있으나 좀더 자세하게
       //만들기 위해서는 Align로 랩핑하고 Alignment를 이용해 left CenterRight등 다양한 메서드를 사용할수 있음
       //길이나 폭이 무한하다는 뜻으로 꽉채우고 싶다면 double.infinity를 사용해주면 됨
-      home: Scaffold(
-        appBar: AppBar( title: Text('앱임'), centerTitle: false,),
-        body: Align(
-          alignment: Alignment.centerLeft,
-          child: Container(
-            width: double.infinity, height: 50, color: Colors.blue,
+    //   home: Scaffold(
+    //     appBar: AppBar( title: Text('앱임'), centerTitle: false,),
+    //     body: Align(
+    //       alignment: Alignment.centerLeft,
+    //       child: Container(
+    //         width: double.infinity, height: 50, color: Colors.blue,
             
              
-              ),
-        ),
+    //           ),
+    //     ),
           
 
-        ),
+    //     ),
         
+    // );
+
+    //글자 스타일
+    //헥스 컬러 0xff+ 헥스 컬러 기호
+    //폰트 사이즈 fontSize: 00, 폰트 굵기: fontWeight: FontWeight.w100...w900
+    /*
+    body: SizedBox(child: Text('안녕하세요',
+       style: TextStyle(color: Color(0x6970B1B1),
+       fontSize: 25,
+       fontWeight: FontWeight.w300
+    */
+
+    //아이콘 스타일
+    //child: Icon(Icons.star, color: Colors.blue, size: 65,)
+
+    //버튼 TextButton(),IconButton(),ElevatedButton()
+    //버튼은 두개의 필수 파라미터가 존재함 child : 버튼의 내용, onpressed : 눌렸을떄 상호효과 (함수를 집어 넣으면 됨)
+    /*
+     body: SizedBox(
+        child: ElevatedButton( 
+          child: Text('버튼'),
+          onPressed: (){},
+          style: ButtonStyle()
+          ),
+
+          )
+    */
+
+    //앱바 디자인
+    //title: 제목, leading: 왼쪽에 넣을 아이콘 action : 상단 버튼
+    // home: Scaffold(
+    //   appBar: AppBar( 
+    //     title: Text('앱임'),
+    //     centerTitle: false,
+    //     leading: Icon(Icons.star),
+    //     actions: [
+    //       IconButton(onPressed: (){}, icon: Icon(Icons.star)),
+    //       IconButton(onPressed: (){}, icon: Icon(Icons.shop)),
+    //       IconButton(onPressed: (){}, icon: Icon(Icons.star)),
+    //       ],
+    //     ),
+    //   body: SizedBox()
+       
+    //    ),
+    
+    home: Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Text('금호동 3가', 
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.w600
+              ),
+              ),
+              IconButton(onPressed: (){}, icon: Icon(Icons.keyboard_arrow_down, color: Colors.black,))    
+          ],
+        ),
+        centerTitle: false,
+        //leading: Icon(Icons.keyboard_arrow_down, color: Colors.black,),
+        actions: [
+          Container(child:
+            IconButton(onPressed: (){}, icon: Icon(
+            Icons.search, color: Colors.black, size: 26, )
+            ),
+            margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+            ),
+         Container(child:  IconButton(onPressed: (){}, icon: Icon(
+            Icons.dehaze, color: Colors.black,  size: 26,)
+            ),
+            margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+            ),
+         Container(child: IconButton(onPressed: (){}, icon: Icon(
+            Icons.notifications_none, color: Colors.black,  size: 26,)
+            ),
+            margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+            )
+        ],
+        backgroundColor: Colors.white
+      ),
+      body: Container(
+       
+        child: Row(
+          children: [
+            Container(
+              width: 130,
+              height: 130,
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(color: Colors.black,width: 2)
+
+              ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.asset('logo.png',fit: BoxFit.contain),
+                )
+                //Image.asset('logo.png',fit: BoxFit.contain),
+            ),
+            Container(
+              width: 350,
+              height: 145,
+              margin: EdgeInsets.fromLTRB(0, 10, 10, 10),
+              child: Column(
+                children: [
+                  Container(
+                    child: Text(
+                      "시간 저장소 - 습관 행동 중독 교정을 \n심리학적으로 풀어낸 앱",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500
+                      ),
+                      ),
+                    width: 300,
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(5, 5, 50, 0),
+                    ),
+                    Container(
+                    child: Text(
+                      "2020년 12월 11일 출시",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey
+                      ),
+                      ),
+                    width: 345,
+                    height: 18,
+                    margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                    ),
+                     Container(
+                    child: Text(
+                      "0 원",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w900
+                      ),
+                      ),
+                    width: 345,
+                    height: 20,
+                    margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                    ),
+                     Container(
+                    width: 345,
+                    height: 30,
+                    margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                    child: Row(
+                      children: [
+                        SizedBox( width: 300, height: 30,),
+                        Icon(Icons.favorite_border,color: Colors.grey,),
+                        Text("4",style: TextStyle(color: Colors.grey,))
+                      ],
+                    ),
+
+                    ),
+                ],
+              
+              ),
+            )
+            ],
+        ),
+      ),
+      ),
+      
+
+
+
     );
   }
 }
