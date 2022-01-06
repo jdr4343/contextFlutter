@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 //앱의 메인 페이지 stless + Tap
 //Flutter에서 앱 디자인 하는 방법은 위젯 짜집기라고 보면됨
 class MyApp extends StatelessWidget {
@@ -59,8 +60,8 @@ class MyApp extends StatelessWidget {
       //   ),
       // ),
 
-      //박스 디자인, 여백주기 : margin, 안쪽 여백주기 : padding, 테두리등등 : decoration
-      //BoxDecoration 키게 되면 중복되는 컬러 지정을 하지 못함
+      // 박스 디자인, 여백주기 : margin, 안쪽 여백주기 : padding, 테두리등등 : decoration
+      // BoxDecoration 키게 되면 중복되는 컬러 지정을 하지 못함
       /*
        margin: EdgeInsets.fromLTRB(20, 20, 0, 0),
           decoration: BoxDecoration(
@@ -68,15 +69,15 @@ class MyApp extends StatelessWidget {
             color: Colors.blue,
             borderRadius: BorderRadius.circular(25),
       */
-      //메서드를 더블 클릭하고 전구를 통해 감싸줄수 있음, 랩핑이 가능하다는 소리. Center또한 사용할수 있으나 좀더 자세하게
-      //만들기 위해서는 Align로 랩핑하고 Alignment를 이용해 left CenterRight등 다양한 메서드를 사용할수 있음
-      //길이나 폭이 무한하다는 뜻으로 꽉채우고 싶다면 double.infinity를 사용해주면 됨
-    //   home: Scaffold(
-    //     appBar: AppBar( title: Text('앱임'), centerTitle: false,),
-    //     body: Align(
-    //       alignment: Alignment.centerLeft,
-    //       child: Container(
-    //         width: double.infinity, height: 50, color: Colors.blue,
+      // 메서드를 더블 클릭하고 전구를 통해 감싸줄수 있음, 랩핑이 가능하다는 소리. Center또한 사용할수 있으나 좀더 자세하게
+      // 만들기 위해서는 Align로 랩핑하고 Alignment를 이용해 left CenterRight등 다양한 메서드를 사용할수 있음
+      // 길이나 폭이 무한하다는 뜻으로 꽉채우고 싶다면 double.infinity를 사용해주면 됨
+      // home: Scaffold(
+      //   appBar: AppBar( title: Text('앱임'), centerTitle: false,),
+      //   body: Align(
+      //     alignment: Alignment.centerLeft,
+      //     child: Container(
+      //       width: double.infinity, height: 50, color: Colors.blue,
             
              
     //           ),
@@ -87,9 +88,9 @@ class MyApp extends StatelessWidget {
         
     // );
 
-    //글자 스타일
-    //헥스 컬러 0xff+ 헥스 컬러 기호
-    //폰트 사이즈 fontSize: 00, 폰트 굵기: fontWeight: FontWeight.w100...w900
+    // 글자 스타일
+    // 헥스 컬러 0xff+ 헥스 컬러 기호
+    // 폰트 사이즈 fontSize: 00, 폰트 굵기: fontWeight: FontWeight.w100...w900
     /*
     body: SizedBox(child: Text('안녕하세요',
        style: TextStyle(color: Color(0x6970B1B1),
@@ -97,11 +98,11 @@ class MyApp extends StatelessWidget {
        fontWeight: FontWeight.w300
     */
 
-    //아이콘 스타일
-    //child: Icon(Icons.star, color: Colors.blue, size: 65,)
+    // 아이콘 스타일
+    // child: Icon(Icons.star, color: Colors.blue, size: 65,)
 
-    //버튼 TextButton(),IconButton(),ElevatedButton()
-    //버튼은 두개의 필수 파라미터가 존재함 child : 버튼의 내용, onpressed : 눌렸을떄 상호효과 (함수를 집어 넣으면 됨)
+    // 버튼 TextButton(),IconButton(),ElevatedButton()
+    // 버튼은 두개의 필수 파라미터가 존재함 child : 버튼의 내용, onpressed : 눌렸을떄 상호효과 (함수를 집어 넣으면 됨)
     /*
      body: SizedBox(
         child: ElevatedButton( 
@@ -113,8 +114,8 @@ class MyApp extends StatelessWidget {
           )
     */
 
-    //앱바 디자인
-    //title: 제목, leading: 왼쪽에 넣을 아이콘 action : 상단 버튼
+    // 앱바 디자인
+    // title: 제목, leading: 왼쪽에 넣을 아이콘 action : 상단 버튼
     // home: Scaffold(
     //   appBar: AppBar( 
     //     title: Text('앱임'),
@@ -185,14 +186,14 @@ class MyApp extends StatelessWidget {
                 )
                 //Image.asset('logo.png',fit: BoxFit.contain),
             ),
-            Container(
-              width: 350,
+            Expanded(child:  Container(
+              
               height: 145,
               margin: EdgeInsets.fromLTRB(0, 10, 10, 10),
               child: Column(
-                children: [
-                  Container(
-                    child: Text(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [   
+                     Text(
                       "시간 저장소 - 습관 행동 중독 교정을 \n심리학적으로 풀어낸 앱",
                       textAlign: TextAlign.start,
                       style: TextStyle(
@@ -200,12 +201,7 @@ class MyApp extends StatelessWidget {
                         fontWeight: FontWeight.w500
                       ),
                       ),
-                    width: 300,
-                    height: 50,
-                    margin: EdgeInsets.fromLTRB(5, 5, 50, 0),
-                    ),
-                    Container(
-                    child: Text(
+                     Text(
                       "2020년 12월 11일 출시",
                       textAlign: TextAlign.start,
                       style: TextStyle(
@@ -214,12 +210,8 @@ class MyApp extends StatelessWidget {
                         color: Colors.grey
                       ),
                       ),
-                    width: 345,
-                    height: 18,
-                    margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                    ),
-                     Container(
-                    child: Text(
+                  
+                    Text(
                       "0 원",
                       textAlign: TextAlign.start,
                       style: TextStyle(
@@ -227,33 +219,57 @@ class MyApp extends StatelessWidget {
                         fontWeight: FontWeight.w900
                       ),
                       ),
-                    width: 345,
-                    height: 20,
-                    margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                    ),
-                     Container(
-                    width: 345,
-                    height: 30,
-                    margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
-                    child: Row(
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        SizedBox( width: 300, height: 30,),
                         Icon(Icons.favorite_border,color: Colors.grey,),
                         Text("4",style: TextStyle(color: Colors.grey,))
                       ],
                     ),
 
-                    ),
+                    
                 ],
               
               ),
-            )
+            ))
+           
             ],
         ),
       ),
       ),
-      
-
+    // Fiexible 오토 레이 아웃 : 전체 flex의 Int값의 % 로 크기를 지정해줄수 있게 해줍니다. 
+    //   body: Row(
+    //   Flexible(child: Container(color: Colors.red,),
+    //       flex: 3,
+    //       ),
+          
+    //       Flexible(child: Container(color: Colors.blue,),
+    //       flex: 4,
+    //       ),
+    //        Flexible(child: Container(color: Colors.green,),
+    //       flex: 3,
+    //       ),)
+    // Expanded : flex를 굳이 지정해주지 않아도 될때 사용 Expanded는 1의 flex를 가지고 있다 생각하면 되고
+    // 다른 객체가 가진 크기를 제외한 전 공간을 채워줍니다. 꽉차는 박스가 필요할 경우 사용
+    //  body: Row(
+    //     children: [
+    //       Expanded(child: Container(color: Colors.red,),
+    //       ),
+          
+    //       Container(width: 100, color: Colors.teal,)
+    //     ],
+    // Row, Colum 둘다 사용가능
+    // home: Scaffold(
+    //   appBar: AppBar(),
+    //   body: Row(
+    //     children: [
+    //       Expanded(child: Container(color: Colors.red,),
+    //       ),
+          
+    //       Container(width: 100, color: Colors.teal,)
+    //     ],
+    //   ),
+    // ),
 
 
     );
